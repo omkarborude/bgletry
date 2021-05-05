@@ -1,4 +1,3 @@
-require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require('cors');
@@ -13,7 +12,7 @@ const routeNotFoundHandler = require("./middlewares/route-error");
 const allErrorsHandler = require("./middlewares/all-error");
 
 // connection
-const initializeConnectionToDb = require("./db/db.connect");
+const initializeConnectionDb = require("./db/db.connect");
 
 
 const app = express();
@@ -24,7 +23,7 @@ app.use(cors());
 
 const port = 3000;
 
-initializeConnectionToDb();
+initializeConnectionDb();
 
 app.get("/", (req,res)=>{
   res.send("Hello word!");
@@ -42,5 +41,5 @@ app.use(allErrorsHandler);
 
 
 app.listen( process.env.PORT || port, () => {
-    console.log(`server started`)
+    console.log(`server Online!`)
   })
