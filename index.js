@@ -7,6 +7,7 @@ const products = require("./routes/products.router");
 const users = require("./routes/users.router");
 const carts = require("./routes/carts.router");
 const wishlists = require("./routes/wishlists.router")
+const videos = require("./routes/video.router")
 // middlewares
 const routeNotFoundHandler = require("./middlewares/route-error");
 const allErrorsHandler = require("./middlewares/all-error");
@@ -33,11 +34,9 @@ app.use("/products", products);
 app.use("/users", users);
 app.use("/carts", carts);
 app.use('/wishlist', wishlists);
-
+app.use("/videos",videos);
 
 app.use(routeNotFoundHandler);
-
-
 app.use(allErrorsHandler);
 
 
